@@ -1,0 +1,53 @@
+<div>
+    <div class="card card-1">
+        <mat-card-title>Fill up form</mat-card-title>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <mat-form-field>
+                <input matInput placeholder="Name" [(ngModel)]="name" name="Name" required #Name="ngModel" maxlength="30">
+                <mat-error *ngIf="Name.invalid && (Name.dirty || Name.touched)">
+                    <mat-error *ngIf="Name.errors.required">Name is required</mat-error>
+                </mat-error>
+            </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+                <input matInput placeholder="Username" [(ngModel)]="username" name="Username" required #Username="ngModel"
+                    maxlength="30">
+                <mat-error *ngIf="Username.invalid && (Username.dirty || Username.touched)">
+                    <mat-error *ngIf="Username.errors.required">Username is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Email" [(ngModel)]="email" name="emailInp" required #emailInp="ngModel"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                <mat-error *ngIf="emailInp.invalid && (emailInp.dirty || emailInp.touched)">
+                    <mat-error *ngIf="emailInp.errors.required">Email is required</mat-error>
+                    <mat-error *ngIf="emailInp.errors.pattern">Invalid email</mat-error>
+                </mat-error>
+            </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+                <input matInput placeholder="Phone" [(ngModel)]="phone" name="Phone" required #Phone="ngModel"
+                    maxlength="30">
+                <mat-error *ngIf="Phone.invalid && (Phone.dirty || Phone.touched)">
+                    <mat-error *ngIf="Phone.errors.required">Phone is required</mat-error>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Website" [(ngModel)]="website" name="Website" required #Website="ngModel"
+                    maxlength="30">
+                <mat-error *ngIf="Website.invalid && (Website.dirty || Website.touched)">
+                    <mat-error *ngIf="Website.errors.required">Website is required</mat-error>
+                </mat-error>
+            </mat-form-field><br><br>
+            <button mat-flat-button color="primary" class="btn" [disabled]="!f.form.valid">{{status}}</button>
+
+        </form><br>
+        <button mat-flat-button color="warn" class="btn" *ngIf="editted" (click)="onCancel()" [hidden]="hideCancel">Cancel</button>
+    </div>
+</div>
+<mat-card class="child-card">
+    <mat-card-title>List of Students<span style="float: right">Total: {{datas.length}}</span></mat-card-title>
+    <mat-card-content>
+        <app-table [registeredData]="datas" (editData)="edit($event)" (deleteData)="delete($event)"></app-table>
+    </mat-card-content>
+
+</mat-card>

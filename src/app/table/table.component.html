@@ -1,0 +1,33 @@
+<table>
+    <tr matSort (matSortChange)="sortData($event)">
+        <th mat-sort-header="id">ID</th>
+        <th mat-sort-header="name">Name</th>
+        <th mat-sort-header="username">Username</th>
+        <th mat-sort-header="email">Email</th>
+        <th mat-sort-header="phone">Phone</th>
+        <th mat-sort-header="website">Website</th>
+        <th>Action</th>
+    </tr>
+
+    <tr *ngFor="let data of registeredData ;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.username}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phone}}</td>
+        <td>{{data.website}}</td>
+        <td>
+            <button mat-mini-fab aria-label="edit" (click)="onEdit(data)" matTooltip="Edit information"
+                matTooltipPosition="right">
+                <mat-icon>create</mat-icon>
+            </button>&nbsp;
+            <button mat-mini-fab aria-label="edit" color="warn" (click)="onDelete(data)" matTooltip="Delete"
+                matTooltipPosition="right">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </tr>
+
+</table>
+<!-- <mat-paginator [length]="100" [pageSize]="2" [pageSizeOptions]="[2,4,6,8]" showFirstLastButtons>
+</mat-paginator> -->
