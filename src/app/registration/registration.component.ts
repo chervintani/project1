@@ -8,6 +8,9 @@ import { ApiServiceService } from '../services/api-service.service';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  public myModel = ''
+  public mask = [ /\d/, /\d/, /\d/,  /\d/,'-', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   genders: any[] = [
     { value: 'Male' },
     { value: 'Female' }
@@ -40,7 +43,7 @@ export class RegistrationComponent implements OnInit {
     this.apiService.getData().subscribe(
       data => {
         this.datas = data
-        console.log(this.datas)
+        console.info("Datas",this.datas)
       }
     )
   }
@@ -50,6 +53,7 @@ export class RegistrationComponent implements OnInit {
     if (!this.editted) {
       this.info = new Details;
       this.info.name = this.name;
+      this.info.id = this.datas[this.datas.length-1].id+1
       this.info.username = this.username;
       this.info.email = this.email;
       this.info.phone = this.phone;
@@ -67,9 +71,10 @@ export class RegistrationComponent implements OnInit {
     } else {
       this.apiService.updateData(this.info,this.id).subscribe(
         data=>{
-          console.log(data.id)
+          console.log(data)
         }
       )
+      
       this.datas.forEach(element => {
         if (element.id == this.id) {
           element.name = this.name;
@@ -116,5 +121,6 @@ export class RegistrationComponent implements OnInit {
       }
     )
     this.datas.splice(this.datas.indexOf(form), 1)
+    this.notyfService.error(`🗑️ ${form.name} is deleted successfully!`);
   }
 }

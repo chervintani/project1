@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { TextMaskModule } from 'angular2-text-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -49,7 +50,8 @@ import { TableComponent } from './table/table.component';
     MatTooltipModule,
     NotyfModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule,
+    TextMaskModule
   ],
   providers: [ ApiServiceService],
   bootstrap: [AppComponent]
