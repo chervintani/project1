@@ -14,7 +14,7 @@
                 <mat-error *ngIf="Username.invalid && (Username.dirty || Username.touched)">
                     <mat-error *ngIf="Username.errors.required">Username is required</mat-error>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field><br>
 
             <mat-form-field>
                 <input matInput placeholder="Email" [(ngModel)]="email" name="emailInp" required #emailInp="ngModel"
@@ -31,7 +31,7 @@
                     <mat-error *ngIf="Phone.errors.required">Phone is required</mat-error>
                     <mat-error *ngIf="Phone.errors.pattern">Invalid phone format</mat-error>
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field><br>
             <mat-form-field>
                 <input matInput placeholder="Website" [(ngModel)]="website" name="Website" required #Website="ngModel"
                     maxlength="30" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
@@ -46,7 +46,9 @@
         <button mat-flat-button color="warn" class="btn" *ngIf="editted" (click)="onCancel()" [hidden]="hideCancel">Cancel</button>
     </div>
 </div>
-<mat-card class="child-card">
+<mat-progress-bar  mode="indeterminate" *ngIf="!loading"></mat-progress-bar>
+<mat-card class="child-card" *ngIf="loaded">
+    
     <mat-card-title>List of Students<span style="float: right">Total: {{datas.length}}</span></mat-card-title>
     <mat-card-content>
         <app-table [registeredData]="datas" (editData)="edit($event)" (deleteData)="delete($event)"></app-table>

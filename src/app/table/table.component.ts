@@ -1,25 +1,27 @@
 import { Component, OnInit, Input, Output,EventEmitter, ViewChild } from '@angular/core';
 import {Sort} from '@angular/material/sort';
 import {Details} from '../details';
-import {ApiServiceService} from '../services/api-service.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
+
   
   @Input() registeredData: Details[]; 
   @Output() editData = new EventEmitter<Details>();
   @Output() deleteData = new EventEmitter<Details>();
-  test : Details[] 
 
   constructor() { 
     this.sortedData = this.registeredData;
   }
 
   sortedData: Details[];
-
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.registeredData, event.previousIndex, event.currentIndex);
+  }
   sortData(sort: Sort) {
     const data = this.registeredData;
     if (!sort.active || sort.direction === '') {
@@ -51,7 +53,8 @@ export class TableComponent implements OnInit {
   onDelete(obj){
     this.deleteData.emit(obj)
   }
-   
+
+
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {

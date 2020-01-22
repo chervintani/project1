@@ -1,0 +1,15 @@
+.card-div {
+    text-align: center;
+    margin-top: 10%
+}
+
+.example-card {
+    max-width: 450px;
+    display: inline-block
+}
+
+.example-header-image {
+    background-image: url('https://cdn5.vectorstock.com/i/1000x1000/44/39/avatar-icon-male-person-symbol-circle-user-vector-20924439.jpg');
+    background-size: cover;
+}
+

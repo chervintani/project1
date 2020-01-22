@@ -1,11 +1,6 @@
-
-<mat-toolbar color="primary" class="navbar">
-    <img src="https://www.passerellesnumeriques.org/wp-content/uploads/2016/03/pn-logo.png" style="height:45px">
-  <div> Student Management System</div>
-  <div>
-    <a mat-raised-button color="accent">Logout</a>
-  </div>
-</mat-toolbar><br>
+<app-navbar></app-navbar>
 <div style="width: 70%;display: inline">
-  <app-registration></app-registration>
+  <!-- <app-registration></app-registration> -->
+  <router-outlet></router-outlet>
+  
 </div>

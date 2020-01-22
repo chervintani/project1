@@ -22,15 +22,26 @@ import {MatIconModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { NotyfModule } from 'ng-notyf';
 import {MatSortModule} from '@angular/material/sort';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import { TableComponent } from './table/table.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { InformationComponent } from './information/information.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
-    TableComponent
+    TableComponent,
+    NavbarComponent,
+    HomeComponent,
+    InformationComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +62,10 @@ import { TableComponent } from './table/table.component';
     NotyfModule,
     MatSortModule,
     HttpClientModule,
-    TextMaskModule
+    TextMaskModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+    DragDropModule
   ],
   providers: [ ApiServiceService],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+
+<div class="card-div">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{data.name}}</mat-card-title><br>
+            <mat-card-subtitle>ID: {{data.id}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="imgSrc">
+        <mat-card-content>
+            <p>Username: {{data.username}}</p>
+            <p>Email: {{data.email}}</p>
+            <p>Phone: {{data.phone}}</p>
+            <p>Website: {{data.website}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" routerLink="/table">Go Back</button>
+            <br><br>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<!-- <mat-progress-bar  mode="indeterminate"></mat-progress-bar> -->

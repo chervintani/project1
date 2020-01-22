@@ -1,4 +1,4 @@
-<table>
+<table cdkDropList (cdkDropListDropped)="drop($event)">
     <tr matSort (matSortChange)="sortData($event)">
         <th mat-sort-header="id">ID</th>
         <th mat-sort-header="name">Name</th>
@@ -9,7 +9,7 @@
         <th>Action</th>
     </tr>
 
-    <tr *ngFor="let data of registeredData ;let i=index">
+    <tr *ngFor="let data of registeredData ;let i=index" cdkDrag>
         <td>{{data.id}}</td>
         <td>{{data.name}}</td>
         <td>{{data.username}}</td>
@@ -17,6 +17,10 @@
         <td>{{data.phone}}</td>
         <td>{{data.website}}</td>
         <td>
+                <button mat-mini-fab aria-label="edit" color="primary" matTooltip="View information"
+                matTooltipPosition="left" routerLink="/info/{{data.id}}">
+                <mat-icon>remove_red_eye</mat-icon>
+            </button>&nbsp;
             <button mat-mini-fab aria-label="edit" (click)="onEdit(data)" matTooltip="Edit information"
                 matTooltipPosition="right">
                 <mat-icon>create</mat-icon>
@@ -29,5 +33,3 @@
     </tr>
 
 </table>
-<!-- <mat-paginator [length]="100" [pageSize]="2" [pageSizeOptions]="[2,4,6,8]" showFirstLastButtons>
-</mat-paginator> -->

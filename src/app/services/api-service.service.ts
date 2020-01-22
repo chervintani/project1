@@ -34,4 +34,7 @@ export class ApiServiceService {
     return this.http.put<any>(`${this.url}/${id}`, detail, httpOptions)
   }
 
+  saveSession(key:any,value:any){
+    sessionStorage.setItem(key,value)
+  }
 }
