@@ -8,6 +8,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ApiServiceService} from './services/api-service.service'
+import { Component, HostBinding } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
+
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -25,6 +35,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { TableComponent } from './table/table.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -65,7 +76,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     TextMaskModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    DragDropModule
+    DragDropModule,
+    MatSidenavModule,
+    BrowserAnimationsModule
   ],
   providers: [ ApiServiceService],
   bootstrap: [AppComponent]

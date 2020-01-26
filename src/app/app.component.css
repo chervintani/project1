@@ -1,3 +1,30 @@
 * {
   text-align: center
 }
+
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 12px;
+  border: 1px solid #555;
+}
+
+mat-drawer-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#mat-btn:hover {
+  background-color: rgb(123, 170, 209);
+  transition: 0.8s;
+  outline: 1rem;
+  
+}
+
+#mat-btn {
+  width: 100%;
+  padding: 5px;
+  font-size: 17px
+}
